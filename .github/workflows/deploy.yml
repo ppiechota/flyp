@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - run: sudo pip install gigalixir --ignore-installed six
       - run: gigalixir login -e "${{ secrets.GIGALIXIR_EMAIL }}" -y -p "${{ secrets.GIGALIXIR_PASSWORD }}"
       - run: gigalixir git:remote ${{ secrets.GIGALIXIR_APP_NAME }}
